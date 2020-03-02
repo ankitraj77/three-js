@@ -70,8 +70,10 @@
 				let x = event.beta // In degree in the range [-180,180]
 				let y = event.gamma // In degree in the range [-90,90]
 				newHue = event.alpha
+				newHue.toFixed(0)
 
 				newSaturation = event.beta
+				newSaturation.toFixed(0) * 0.001
 				// info.innerHTML = 'beta : ' + x + '\n'
 				// info.innerHTML += 'gamma: ' + y + '\n'
 				info.innerHTML = newHue + '\n'
