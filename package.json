@@ -1,0 +1,27 @@
+{
+  "name": "three-js",
+  "version": "1.0.0",
+  "description": "A Three JS experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankitraj77/three-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ankitraj77/three-js/issues"
+  },
+  "homepage": "https://github.com/ankitraj77/three-js#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "three": "^0.114.0"
+  }
+}
