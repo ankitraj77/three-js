@@ -73,11 +73,11 @@
 				newHue = newHue.toFixed(0)
 
 				newSaturation = event.beta
-				newSaturation = newSaturation.toFixed(0) * 0.001
+				newSaturation = newSaturation.toFixed(0) * 0.01
 				// info.innerHTML = 'beta : ' + x + '\n'
 				// info.innerHTML += 'gamma: ' + y + '\n'
-				info.innerHTML = newHue + '\n'
-				info.innerHTML += newSaturation + '\n'
+				info.innerHTML = newHue + '  /  '
+				info.innerHTML += newSaturation
 
 				// Because we don't want to have the device upside down
 				// We constrain the x value to the range [-90,90]
