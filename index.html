@@ -90,7 +90,7 @@
 				// info.innerHTML += newSaturation
 
 				let cameraPosition = 100 / event.beta
-				cameraPosition > 10 && !cameraPosition < 0
+				cameraPosition > 10 || !cameraPosition < 0
 					? (cameraPosition = 10)
 					: cameraPosition
 				camera.position.z = cameraPosition
