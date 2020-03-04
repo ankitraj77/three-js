@@ -86,11 +86,12 @@
 				newSaturation = newSaturation.toFixed(0) * 0.01
 				// info.innerHTML = 'beta : ' + x + '\n'
 				// info.innerHTML += 'gamma: ' + y + '\n'
-				info.innerHTML = newHue + '  /  '
-				info.innerHTML += newSaturation
+				// info.innerHTML = newHue + '  /  '
+				// info.innerHTML += newSaturation
 
 				camera.position.z = event.beta / 10
 
+				info.innerHTML = camera.position.z
 				// Because we don't want to have the device upside down
 				// We constrain the x value to the range [-90,90]
 				if (x > 90) {
