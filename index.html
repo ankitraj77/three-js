@@ -40,12 +40,11 @@
 			//
 			let newHue = 0
 			let newSaturation = 0
-			let color = new THREE.Color('hsl(0, 50%, 50%)')
 
 			// THREE JS SETUP
 			let renderer = new THREE.WebGLRenderer({ alpha: true })
 			renderer.setSize(window.innerWidth, window.innerHeight)
-			renderer.setClearColor(color)
+			renderer.setClearColor(0x131617, 1)
 			document.body.appendChild(renderer.domElement)
 
 			// LIGHT
@@ -61,7 +60,7 @@
 
 			// CUBE
 			let geometry = new THREE.BoxGeometry()
-
+			let color = new THREE.Color('hsl(0, 50%, 50%)')
 			let material = new THREE.MeshLambertMaterial({ color: color })
 			let cube = new THREE.Mesh(geometry, material)
 			scene.add(cube)
@@ -120,13 +119,11 @@
 				// newHue = newHue / 100
 
 				cube.material.color.setHSL(newHue * 0.001, newSaturation, 0.5)
-
 				// info.innerHTML = newHue
 
 				// cube.material.color = color
 
 				renderer.render(scene, camera)
-				renderer.setClearColor(newHue * 0.001, 0.7, 1)
 			}
 
 			animate()
