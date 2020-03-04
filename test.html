@@ -30,6 +30,8 @@
 		</style>
 	</head>
 	<body>
+		<div id="info">Description</div>
+
 		<script>
 			// import * as THREE from '../build/three.module.js'
 
@@ -42,6 +44,9 @@
 
 			var windowHalfX = window.innerWidth / 2
 			var windowHalfY = window.innerHeight / 2
+
+			let newHue = 0
+			let newSaturation = 0
 
 			init()
 			animate()
@@ -59,16 +64,29 @@
 				scene.background = new THREE.Color(0xffffff)
 				scene.fog = new THREE.Fog(0xffffff, 1, 10000)
 
+				// LIGHT
+				// AMBIENT LIGHT
+				let light = new THREE.AmbientLight(0x404040, 1.5) // soft white light
+				scene.add(light)
+				// White directional light at half intensity shining from the top.
+				let directionalLight = new THREE.DirectionalLight(0xffffff, 0.7)
+				directionalLight.position.x = -1
+				directionalLight.position.y = 0.5
+				directionalLight.position.z = 1
+				scene.add(directionalLight)
+
+				// CUBES
 				var geometry = new THREE.BoxBufferGeometry(100, 100, 100)
-				var material = new THREE.MeshNormalMaterial()
+				let color = new THREE.Color('hsl(0, 50%, 50%)')
+				var material = new THREE.MeshLambertMaterial({ color: color })
 
 				group = new THREE.Group()
 
-				for (var i = 0; i < 1000; i++) {
+				for (var i = 0; i < 50; i++) {
 					var mesh = new THREE.Mesh(geometry, material)
-					mesh.position.x = Math.random() * 2000 - 1000
-					mesh.position.y = Math.random() * 2000 - 1000
-					mesh.position.z = Math.random() * 2000 - 1000
+					mesh.position.x = Math.random() * 1000 - 500
+					mesh.position.y = Math.random() * 1000 - 500
+					mesh.position.z = Math.random() * 1000 - 500
 
 					mesh.rotation.x = Math.random() * 2 * Math.PI
 					mesh.rotation.y = Math.random() * 2 * Math.PI
@@ -94,6 +112,46 @@
 				// document.body.appendChild(stats.dom)
 
 				//
+
+				// ========= DEVICE ORIENTATION
+				// DEVICE ORIENTATION - GYROSCOPE
+				let info = document.querySelector('#info')
+
+				function handleOrientation(event) {
+					let x = event.beta // In degree in the range [-180,180]
+					let y = event.gamma // In degree in the range [-90,90]
+					newHue = event.alpha
+					newHue = newHue.toFixed(0)
+
+					newSaturation = event.beta
+					newSaturation = newSaturation.toFixed(0) * 0.01
+					// info.innerHTML = 'beta : ' + x + '\n'
+					// info.innerHTML += 'gamma: ' + y + '\n'
+					info.innerHTML = newHue + '  /  '
+					info.innerHTML += newSaturation
+
+					// Because we don't want to have the device upside down
+					// We constrain the x value to the range [-90,90]
+					if (x > 90) {
+						x = 90
+					}
+					if (x < -90) {
+						x = -90
+					}
+
+					// To make computation easier we shift the range of
+					// x and y to [0,180]
+					x += 90
+					y += 90
+					// Do stuff with the new orientation data
+				}
+				window.addEventListener(
+					'deviceorientation',
+					handleOrientation,
+					true
+				)
+
+				// ========= DEVICE ORIENTATION
 
 				document.addEventListener(
 					'mousemove',
