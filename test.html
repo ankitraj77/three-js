@@ -180,6 +180,7 @@
 			}
 
 			//
+			console.log(group)
 
 			function animate() {
 				requestAnimationFrame(animate)
@@ -203,6 +204,16 @@
 				group.rotation.x = rx
 				group.rotation.y = ry
 				group.rotation.z = rz
+
+				for (let cube of group.children) {
+					//
+					cube.material.color.setHSL(
+						newHue * 0.001,
+						newSaturation,
+						0.5
+					)
+				}
+				// group.material.color.setHSL(newHue * 0.001, newSaturation, 0.5)
 
 				renderer.render(scene, camera)
 			}
