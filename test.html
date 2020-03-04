@@ -61,8 +61,8 @@
 				camera.position.z = 500
 
 				scene = new THREE.Scene()
-				scene.background = new THREE.Color(0xffffff)
-				scene.fog = new THREE.Fog(0xffffff, 1, 10000)
+				scene.background = new THREE.Color(0x131617)
+				// scene.fog = new THREE.Fog(0xffffff, 1, 10000)
 
 				// LIGHT
 				// AMBIENT LIGHT
@@ -104,6 +104,7 @@
 				renderer = new THREE.WebGLRenderer({ antialias: true })
 				renderer.setPixelRatio(window.devicePixelRatio)
 				renderer.setSize(window.innerWidth, window.innerHeight)
+				// renderer.setClearColor(0x131617, 1)
 				document.body.appendChild(renderer.domElement)
 
 				//
