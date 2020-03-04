@@ -62,12 +62,38 @@
 			scene.add(directionalLight)
 
 			// CUBE
-			let geometry = new THREE.BoxGeometry()
-			let color = new THREE.Color('hsl(0, 50%, 50%)')
-			let material = new THREE.MeshLambertMaterial({ color: color })
-			let cube = new THREE.Mesh(geometry, material)
+			// let geometry = new THREE.BoxGeometry()
+			// let color = new THREE.Color('hsl(0, 50%, 50%)')
+			// let material = new THREE.MeshLambertMaterial({ color: color })
+			// let cube = new THREE.Mesh(geometry, material)
+			// scene.add(cube)
+			// console.log(cube)
+
+			// PLANET
+			const geometry = new THREE.SphereGeometry(1, 32, 32)
+			const material = new THREE.MeshPhongMaterial()
+			const cube = new THREE.Mesh(geometry, material)
+
+			material.map = new THREE.TextureLoader().load(
+				'textures/diffuse.jpg'
+			)
+			material.bumpMap = new THREE.TextureLoader().load(
+				'textures/bump.jpg'
+			)
+			material.bumpScale = 0.015
 			scene.add(cube)
-			console.log(cube)
+
+			// STARS
+			const starsGeometry = new THREE.SphereGeometry(4, 32, 32)
+			const starsMaterial = new THREE.MeshBasicMaterial()
+			const starsMesh = new THREE.Mesh(starsGeometry, starsMaterial)
+
+			starsMaterial.map = new THREE.TextureLoader().load(
+				'textures/stars.jpg'
+			)
+			starsMaterial.side = THREE.BackSide
+
+			scene.add(starsMesh)
 
 			// CAMERA
 			camera.position.z = 5
@@ -121,7 +147,7 @@
 			let animate = function() {
 				requestAnimationFrame(animate)
 
-				cube.rotation.x += 0.01
+				// cube.rotation.x += 0.01
 				cube.rotation.y += 0.01
 
 				// newHue < 360 ? newHue++ : (newHue = 0)
