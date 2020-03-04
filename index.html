@@ -72,7 +72,7 @@
 			// PLANET
 			const geometry = new THREE.SphereGeometry(1, 32, 32)
 			const material = new THREE.MeshPhongMaterial()
-			const cube = new THREE.Mesh(geometry, material)
+			const planet = new THREE.Mesh(geometry, material)
 
 			material.map = new THREE.TextureLoader().load(
 				'textures/diffuse.jpg'
@@ -81,7 +81,7 @@
 				'textures/bump.jpg'
 			)
 			material.bumpScale = 0.015
-			scene.add(cube)
+			scene.add(planet)
 
 			// STARS
 			const starsGeometry = new THREE.SphereGeometry(4, 32, 32)
@@ -116,8 +116,8 @@
 				// info.innerHTML += newSaturation
 
 				let cameraPosition = 100 / event.beta
-				cameraPosition < 0 ? (cameraPosition = 10) : null
-				cameraPosition > 10 ? (cameraPosition = 10) : cameraPosition
+				cameraPosition < 0 ? (cameraPosition = 5.3) : null
+				cameraPosition > 5.3 ? (cameraPosition = 5.3) : cameraPosition
 				camera.position.z = cameraPosition
 
 				info.innerHTML = camera.position.z
@@ -147,16 +147,16 @@
 			let animate = function() {
 				requestAnimationFrame(animate)
 
-				// cube.rotation.x += 0.01
-				cube.rotation.y += 0.01
+				// planet.rotation.x += 0.01
+				planet.rotation.y += 0.01
 
 				// newHue < 360 ? newHue++ : (newHue = 0)
 				// newHue = newHue / 100
 
-				cube.material.color.setHSL(newHue * 0.001, newSaturation, 0.5)
+				planet.material.color.setHSL(newHue * 0.001, newSaturation, 0.7)
 				// info.innerHTML = newHue
 
-				// cube.material.color = color
+				// planet.material.color = color
 
 				renderer.render(scene, camera)
 			}
