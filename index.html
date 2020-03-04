@@ -42,7 +42,10 @@
 			let newSaturation = 0
 
 			// THREE JS SETUP
-			let renderer = new THREE.WebGLRenderer({ alpha: true })
+			let renderer = new THREE.WebGLRenderer({
+				alpha: true,
+				antialias: true
+			})
 			renderer.setSize(window.innerWidth, window.innerHeight)
 			renderer.setClearColor(0x131617, 1)
 			document.body.appendChild(renderer.domElement)
