@@ -89,7 +89,9 @@
 				// info.innerHTML = newHue + '  /  '
 				// info.innerHTML += newSaturation
 
-				camera.position.z = 100 / event.beta
+				let cameraPosition = 100 / event.beta
+				cameraPosition < 10 ? (cameraPosition = 10) : cameraPosition
+				camera.position.z = cameraPosition
 
 				info.innerHTML = camera.position.z
 				// Because we don't want to have the device upside down
