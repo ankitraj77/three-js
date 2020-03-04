@@ -42,7 +42,7 @@
 			let newSaturation = 0
 
 			// THREE JS SETUP
-			let renderer = new THREE.WebGLRenderer()
+			let renderer = new THREE.WebGLRenderer({ alpha: true })
 			renderer.setSize(window.innerWidth, window.innerHeight)
 			document.body.appendChild(renderer.domElement)
 
