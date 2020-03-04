@@ -133,9 +133,9 @@
 
 					// MOVE CAMERA WITH DEVICE ALPHA AND BETA ORIENTATION DATA
 					camera.position.x +=
-						(event.alpha * 100 - camera.position.x) * 0.05
+						(event.alpha * 30 - camera.position.x) * 0.05
 					camera.position.y +=
-						(-event.alpha * 100 - camera.position.y) * 0.05
+						(-event.alpha * 30 - camera.position.y) * 0.05
 
 					// Because we don't want to have the device upside down
 					// We constrain the x value to the range [-90,90]
