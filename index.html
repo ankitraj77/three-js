@@ -89,7 +89,7 @@
 				info.innerHTML = newHue + '  /  '
 				info.innerHTML += newSaturation
 
-				camera.position.z = -(event.beta / 10)
+				camera.position.z = event.beta / 10
 
 				// Because we don't want to have the device upside down
 				// We constrain the x value to the range [-90,90]
