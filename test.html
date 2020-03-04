@@ -133,9 +133,9 @@
 
 					// MOVE CAMERA WITH DEVICE ALPHA AND BETA ORIENTATION DATA
 					camera.position.x +=
-						(event.alpha * 10 - camera.position.x) * 0.05
+						(event.alpha * 100 - camera.position.x) * 0.05
 					camera.position.y +=
-						(-event.alpha * 10 - camera.position.y) * 0.05
+						(-event.alpha * 100 - camera.position.y) * 0.05
 
 					// Because we don't want to have the device upside down
 					// We constrain the x value to the range [-90,90]
@@ -199,9 +199,9 @@
 			function render() {
 				var time = Date.now() * 0.001
 
-				var rx = Math.sin(time * 0.7) * 0.5,
-					ry = Math.sin(time * 0.3) * 0.5,
-					rz = Math.sin(time * 0.2) * 0.5
+				var rx = Math.sin(time * 0.7) * 0.2,
+					ry = Math.sin(time * 0.3) * 0.2,
+					rz = Math.sin(time * 0.2) * 0.2
 
 				// camera.position.x += (mouseX - camera.position.x) * 0.05
 				// camera.position.y += (-mouseY - camera.position.y) * 0.05
